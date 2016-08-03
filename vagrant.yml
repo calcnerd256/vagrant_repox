@@ -1,43 +1,8 @@
 ---
 - hosts: default
   sudo: yes
-  roles:
-    - OULibraries.repox
   vars_files:
     - my-vars.yml
-  tasks:
-  - include: repox.yml
-    vars:
-      db:
-        username: "{{ repox_mariadb_username }}"
-        password: "{{ repox_mariadb_password }}"
-        database: "{{ repox_mariadb_database }}"
-        privileges: "{{ repox_mariadb_privileges }}"
-        host: localhost
-        port: 3306
-      path:
-        source: "{{ repox_path_source }}"
-        playbook: /vagrant
-        data: "{{ repox_path_data }}"
-        log: "{{ repox_path_log }}"
-        tomcat: /usr/share/tomcat
-      repox_admin:
-        username: "{{ repox_admin_username }}"
-        passhash: "{{ repox_admin_passhash }}"
-        email: "{{ repox_admin_email }}"
-      source_tag: "{{ repox_source_tag }}"
-      ldap:
-        host: "{{ repox_ldap_host }}"
-        password: "{{ repox_ldap_password }}"
-      base_urn: "{{ repox_base_urn }}"
-      smtp:
-        address: "{{ repox_smtp_address }}"
-        password: "{{ repox_smtp_password }}"
-        host: "{{ repox_smtp_host }}"
-        port: "{{ repox_smtp_port }}"
-      email:
-        address: "{{ repox_smtp_address }}"
-        admin: "{{ repox_admin_email }}"
-        password: "{{ repox_smtp_password }}"
-        host: "{{ repox_smtp_host }}"
-        port: "{{ repox_smtp_port }}"
+  roles:
+    - OULibraries.centos7
+    - OULibraries.repox
