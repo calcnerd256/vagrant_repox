@@ -6,6 +6,7 @@
   roles:
     - OULibraries.centos7
     - OULibraries.repox
+    - OULibraries.users
   tasks:
     - name: packages for development and testing
       yum:
