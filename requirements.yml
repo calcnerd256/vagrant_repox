@@ -1,0 +1,3 @@
+---
+- src: https://github.com/OULibraries/ansible-role-repox
+  name: OULibraries.repox
