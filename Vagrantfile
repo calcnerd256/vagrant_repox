@@ -6,7 +6,7 @@ Vagrant.configure(2) do |config|
   config.vm.network "forwarded_port", guest:8080, host:8080
 
   config.vm.provision "shell",
-    inline: "yum install -y ansible1.9 git; ansible-galaxy install -r /vagrant/requirements.yml"
+    inline: "yum install -y ansible1.9 git; ansible-galaxy install -f -r /vagrant/requirements.yml"
 
   config.vm.provision "ansible_local" do |ansible|
     ansible.install = false
