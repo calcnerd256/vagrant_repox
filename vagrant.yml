@@ -12,7 +12,5 @@
         name: "{{ item }}"
         state: latest
       with_items:
-        - dkms
         - emacs
-        - screen
         - net-tools
