@@ -1,16 +1,11 @@
 # -*- mode: ruby -*-
+# vi: set ft=ruby :
 
 Vagrant.configure(2) do |config|
   config.vm.box = "geerlingguy/centos7"
   config.vm.hostname = "repox.vagrant.dev"
   config.vm.network "forwarded_port", guest:8080, host:8080
-
+  # We use a shell provisioner instead of an Ansible provisioner because of Windows
   config.vm.provision "shell",
-    inline: "yum install -y ansible1.9 git; ansible-galaxy install -f -r /vagrant/requirements.yml"
-
-  config.vm.provision "ansible_local" do |ansible|
-    ansible.install = false
-    ansible.provisioning_path = "/vagrant"
-    ansible.playbook = "vagrant.yml"
-  end
+    path: "bootstrap.sh", keep_color: "True"
 end
