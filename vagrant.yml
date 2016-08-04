@@ -1,0 +1,17 @@
+---
+- hosts: default
+  sudo: yes
+  vars_files:
+    - my-vars.yml
+  roles:
+    - OULibraries.centos7
+    - OULibraries.repox
+    - OULibraries.users
+  tasks:
+    - name: packages for development and testing
+      yum:
+        name: "{{ item }}"
+        state: latest
+      with_items:
+        - emacs
+        - net-tools

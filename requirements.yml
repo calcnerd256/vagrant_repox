@@ -1,0 +1,13 @@
+---
+- src: https://github.com/OULibraries/ansible-role-centos7
+  version: v2016-06-29.0
+  name: OULibraries.centos7
+
+- src: https://github.com/OULibraries/ansible-role-repox
+  version: master
+  name: OULibraries.repox
+
+
+- src: https://github.com/OULibraries/ansible-role-users
+  version: v2016-06-10.0
+  name: OULibraries.users
