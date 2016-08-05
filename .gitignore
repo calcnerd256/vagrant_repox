@@ -1,3 +1,6 @@
+# Ignore swap files
+*.swp
+
 # Ignore ansible roles in the vagrant directory
 roles/
 
