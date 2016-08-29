@@ -7,6 +7,12 @@
     - OULibraries.centos7
     - OULibraries.repox
     - OULibraries.users
+  pre_tasks:
+    - name: enable selinux for non-vagrant deployments
+      selinux:
+        state: enforcing
+        policy: targeted
+      when: environment_name != "vagrant"
   tasks:
     - name: packages for development and testing
       yum:
